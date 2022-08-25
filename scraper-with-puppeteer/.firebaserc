@@ -1,0 +1,5 @@
+{
+  "projects": {
+    "default": "tsun-scraper-with-puppeteer"
+  }
+}
