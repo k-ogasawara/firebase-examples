@@ -6,7 +6,7 @@ const updateAllPage = async (url) => {
   if (!pageCount) return;
   const queue = getFunctions().taskQueue('updateItemsByPage');
   const enqueues = [...Array(pageCount)].map((_, i) => {
-    const data = { url };
+    const data = { url: `${url}?p=${i + 1}` };
     const options = { scheduleDelaySeconds: 60 * i };
     return queue.enqueue(data, options);
   });
