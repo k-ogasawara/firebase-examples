@@ -4,7 +4,7 @@ const { getPageCount } = require('./getPageCount');
 const updateAllPage = async (url) => {
   const pageCount = await getPageCount(url);
   if (!pageCount) return;
-  const queue = getFunctions().taskQueue('updateItemsByPage');
+  const queue = getFunctions().taskQueue('updateByPage');
   const enqueues = [...Array(pageCount)].map((_, i) => {
     const data = { url: `${url}?p=${i + 1}` };
     const options = { scheduleDelaySeconds: 60 * i };
